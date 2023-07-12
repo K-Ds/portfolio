@@ -2,9 +2,12 @@ import Home from './pages/Home';
 import Navbar from './components/Navbar';
 import About from './pages/About';
 import Work from './pages/Work';
+import Maintenance from './pages/Maintenance';
+
+const maintanceMode = true;
 
 const FullpageWrapper = () => {
-  return (
+  return !maintanceMode ? (
     <div className="w-11/12">
       <Navbar position={'About'} />
       <main>
@@ -13,6 +16,8 @@ const FullpageWrapper = () => {
         <Work />
       </main>
     </div>
+  ) : (
+    <Maintenance />
   );
 };
 
