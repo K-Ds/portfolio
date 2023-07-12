@@ -4,11 +4,11 @@ import About from './pages/About';
 import Work from './pages/Work';
 import Maintenance from './pages/Maintenance';
 
-const maintanceMode = true;
+const maintanceMode = false;
 
 const FullpageWrapper = () => {
-  return !maintanceMode ? (
-    <div className="w-11/12">
+  return (
+    <div className="lg:w-10/12 2xl:w-3/4">
       <Navbar position={'About'} />
       <main>
         <Home onClick={() => {}} />
@@ -16,16 +16,16 @@ const FullpageWrapper = () => {
         <Work />
       </main>
     </div>
-  ) : (
-    <Maintenance />
   );
 };
 
 function App() {
-  return (
+  return !maintanceMode ? (
     <div className="flex justify-center">
       <FullpageWrapper />
     </div>
+  ) : (
+    <Maintenance />
   );
 }
 

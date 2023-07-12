@@ -6,9 +6,9 @@ type ButtonProps = {
 
 const Button = ({ text, url }: ButtonProps) => {
   return url ? (
-    <div className="bg-orange-500 px-3 py-2 rounded-md">{text}</div>
+    <div className="bg-orange-500 px-5 py-1.5 rounded-md">{text}</div>
   ) : (
-    <a href={url} className="bg-orange-500 px-3 py-2 rounded-md">
+    <a href={url} className="bg-orange-500 px-5 py-1.5 rounded-md">
       {text}
     </a>
   );

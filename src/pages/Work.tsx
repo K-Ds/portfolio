@@ -1,11 +1,15 @@
-import { useState } from 'react';
-import Slider, { Settings } from 'react-slick';
+import { MouseEventHandler, useRef, useState } from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { EffectCoverflow } from 'swiper/modules';
+
+import 'swiper/css';
+import 'swiper/css/effect-coverflow';
+
 import moshify from '../assets/moshify.png';
 import de_banke from '../assets/de_banke.png';
 import portfolio from '../assets/portfolio.png';
 import Card from '../components/Card';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
+import SliderButtons from '../components/SliderButtons';
 
 const data = [
   {
@@ -33,34 +37,38 @@ const data = [
 ];
 
 const Work = () => {
-  const [imgIndex, setImgIndex] = useState(0);
-  const settings: Settings = {
-    className: 'center',
-    infinite: true,
-    centerPadding: '20vw',
-    slidesToShow: 2,
-    speed: 500,
-    beforeChange: (_current, next) => setImgIndex(next),
-  };
-
   return (
-    <div className="h-screen flex flex-col justify-around items-center">
+    <div
+      about="Work"
+      className="h-screen flex flex-col justify-center items-center space-y-20"
+    >
       <header className="flex flex-col items-center space-y-3">
         <h2 className="text-3xl font-semibold">My Work</h2>
         <p className="text-gray-300">
           These are some of the projects I have worked on.
         </p>
       </header>
-      <div className="w-screen">
-        <Slider {...settings}>
-          {data.map((item, idx) => (
-            <Card {...item} active={idx === imgIndex} />
+      <div className="w-full">
+        <Swiper
+          modules={[EffectCoverflow]}
+          effect="coverflow"
+          coverflowEffect={{
+            rotate: 50,
+            stretch: 0,
+            depth: 300,
+            modifier: 1,
+          }}
+          slidesPerView={2}
+          centeredSlides
+          className="h-full flex flex-col justify-between space-y-16"
+        >
+          {data.map((item, id) => (
+            <SwiperSlide key={id}>
+              {({ isActive }) => <Card {...item} active={isActive} />}
+            </SwiperSlide>
           ))}
-        </Slider>
-      </div>
-      <div className="flex space-x-5 font-semibold">
-        <span>PREV</span>
-        <span>NEXT</span>
+          <SliderButtons />
+        </Swiper>
       </div>
     </div>
   );

@@ -40,7 +40,10 @@ const techs:Array<technology> = [
 
 const About = () => {
   return (
-    <div className="h-screen flex flex-col justify-around">
+    <div
+      id="About"
+      className="h-screen flex flex-col justify-center space-y-40"
+    >
       <div className="flex">
         <div className="flex-1">
           <img />
