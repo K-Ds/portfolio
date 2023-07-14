@@ -38,7 +38,7 @@ const data = [
 const Work = () => {
   return (
     <div
-      about="Work"
+      id="Work"
       className="h-screen flex flex-col justify-center items-center space-y-20"
     >
       <header className="flex flex-col items-center space-y-3">
