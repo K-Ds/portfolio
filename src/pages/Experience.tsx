@@ -54,7 +54,7 @@ const Experience = () => {
   return (
     <div
       id="Experience"
-      className="h-screen flex flex-col justify-center items-center space-y-20 pt-32"
+      className="h-screen flex flex-col justify-center items-center space-y-20 pt-32 section"
     >
       <header className="flex flex-col items-center space-y-3">
         <h2 className="text-3xl font-semibold">My Experience</h2>
@@ -66,6 +66,7 @@ const Experience = () => {
         <div className="w-1/4">
           {experiences.map((experience, id) => (
             <div
+              key={id}
               className={clsx(
                 'px-2 py-4 text-xl font-bold border-l-4 transition-colors duration-300 ease-in',
                 id == active
@@ -84,8 +85,10 @@ const Experience = () => {
             {experiences[active].startDate} - {experiences[active].endDate}
           </span>
           <div className="flex flex-col space-y-3 mt-5">
-            {experiences[active].achievements.map((achievement) => (
-              <p className="">{achievement}</p>
+            {experiences[active].achievements.map((achievement, idx) => (
+              <p key={idx} className="">
+                {achievement}
+              </p>
             ))}
           </div>
         </div>

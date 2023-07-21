@@ -39,7 +39,7 @@ const Work = () => {
   return (
     <div
       id="Work"
-      className="h-screen flex flex-col justify-center items-center space-y-20"
+      className="h-screen flex flex-col justify-center items-center space-y-20 section"
     >
       <header className="flex flex-col items-center space-y-3">
         <h2 className="text-3xl font-semibold">My Work</h2>

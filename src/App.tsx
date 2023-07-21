@@ -4,18 +4,21 @@ import About from './pages/About';
 import Work from './pages/Work';
 import Maintenance from './pages/Maintenance';
 import Experience from './pages/Experience';
+import Contact from './pages/Contact';
+import { useState, useLayoutEffect } from 'react';
 
 const maintanceMode = false;
 
 const FullpageWrapper = () => {
   return (
     <div className="lg:w-10/12 2xl:w-3/4">
-      <Navbar position={'About'} />
+      <Navbar />
       <main>
-        <Home onClick={() => {}} />
+        <Home />
         <About />
         <Work />
         <Experience />
+        <Contact />
       </main>
     </div>
   );

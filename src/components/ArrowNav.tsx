@@ -3,18 +3,18 @@ import { BiDownArrowAlt } from 'react-icons/bi';
 
 type ArrowNavProps = {
   text: string;
-  onClick?: MouseEventHandler;
+  href: string;
 };
 
-const ArrowNav = ({ text, onClick }: ArrowNavProps) => {
+const ArrowNav = ({ text, href }: ArrowNavProps) => {
   return (
-    <div
+    <a
       className="flex flex-col text-orange-500 items-center cursor-pointer"
-      onClick={onClick}
+      href={href}
     >
       <p>{text}</p>
       <BiDownArrowAlt className="text-2xl" />
-    </div>
+    </a>
   );
 };
 

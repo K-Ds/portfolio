@@ -42,7 +42,7 @@ const About = () => {
   return (
     <div
       id="About"
-      className="h-screen flex flex-col justify-center space-y-40"
+      className="h-screen flex flex-col justify-center space-y-40 section"
     >
       <div className="flex">
         <div className="flex-1">

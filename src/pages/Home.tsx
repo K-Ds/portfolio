@@ -1,11 +1,7 @@
 import WorkImage from '../assets/work.svg';
 import ArrowNav from '../components/ArrowNav';
-import { MouseEventHandler } from 'react';
 
-type HomeProps = {
-  onClick: MouseEventHandler;
-};
-const Home = ({ onClick }: HomeProps) => {
+const Home = () => {
   return (
     <div id="Home" className="h-screen pt-10">
       <div className="flex space-x-6 h-4/5">
@@ -24,7 +20,7 @@ const Home = ({ onClick }: HomeProps) => {
           <img src={WorkImage} className="h-4/5" />
         </div>
       </div>
-      <ArrowNav text="About Me" onClick={onClick} />
+      <ArrowNav text="About Me" href="#About" />
     </div>
   );
 };

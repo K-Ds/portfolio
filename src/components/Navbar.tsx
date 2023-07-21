@@ -1,12 +1,9 @@
 import Button from "./ButtonOutline";
+import { useState } from 'react';
 
-type NavbarProps = {
-  position: string | number;
-};
+const Navbar = () => {
+  const [navItems] = useState(['About', 'Work', 'Experience']);
 
-const Navbar = ({ position }: NavbarProps) => {
-  const navItems = ['About', 'Work', 'Experience'];
-  console.log(position);
   return (
     <nav className="flex justify-between py-4 px-2 items-center fixed lg:w-10/12 2xl:w-3/4 bg-black">
       <span className="font-semibold text-lg text-orange-500">
@@ -14,10 +11,9 @@ const Navbar = ({ position }: NavbarProps) => {
       </span>
       <ul className="flex space-x-4 font-normal">
         {navItems.map((item, index) => {
-          const style = item == position ? 'text-orange-500' : '';
           return (
             <li key={index}>
-              <a href={''} className={style}>
+              <a href={'#' + item} className={'text-orange-500'}>
                 #{item}
               </a>
             </li>
