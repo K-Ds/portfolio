@@ -13,7 +13,10 @@ const Navbar = () => {
         {navItems.map((item, index) => {
           return (
             <li key={index}>
-              <a href={'#' + item} className={'text-orange-500'}>
+              <a
+                href={'#' + item}
+                className={'text-white hover:text-orange-500'}
+              >
                 #{item}
               </a>
             </li>

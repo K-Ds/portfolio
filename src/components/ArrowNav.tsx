@@ -1,4 +1,3 @@
-import { MouseEventHandler } from 'react';
 import { BiDownArrowAlt } from 'react-icons/bi';
 
 type ArrowNavProps = {
