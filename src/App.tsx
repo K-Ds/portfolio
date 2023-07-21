@@ -5,7 +5,6 @@ import Work from './pages/Work';
 import Maintenance from './pages/Maintenance';
 import Experience from './pages/Experience';
 import Contact from './pages/Contact';
-import { useState, useLayoutEffect } from 'react';
 
 const maintanceMode = false;
 
