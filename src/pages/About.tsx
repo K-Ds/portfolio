@@ -58,7 +58,10 @@ const About = () => {
             every aspect of tech, Whether it's exploring the latest technologies
             or diving into coding challenges.
           </p>
-          <Button text="Resume" />
+          <Button
+            text="Resume"
+            url="https://drive.google.com/file/d/1go21NCbMmBLSjhXbgQHNpCHlVLZxnDX6/view?usp=sharing"
+          />
         </div>
       </div>
       <div className="flex justify-between items-center">
