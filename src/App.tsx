@@ -5,6 +5,7 @@ import Work from './pages/Work';
 import Maintenance from './pages/Maintenance';
 import Experience from './pages/Experience';
 import Contact from './pages/Contact';
+import { Analytics } from '@vercel/analytics/react';
 
 const maintanceMode = false;
 
@@ -24,12 +25,17 @@ const FullpageWrapper = () => {
 };
 
 function App() {
-  return !maintanceMode ? (
-    <div className="flex justify-center">
-      <FullpageWrapper />
-    </div>
-  ) : (
-    <Maintenance />
+  return (
+    <>
+      {!maintanceMode ? (
+        <div className="flex justify-center">
+          <FullpageWrapper />
+        </div>
+      ) : (
+        <Maintenance />
+      )}
+      <Analytics />
+    </>
   );
 }
 
