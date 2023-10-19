@@ -20,11 +20,11 @@ const data = [
   },
   {
     image: de_banke,
-    title: 'DE BANKE',
+    title: 'Ex-Tracker',
     description:
       'This is a finance manager web app, It is used to manage your finances',
     key: 102,
-    url: '#',
+    url: 'https://ex-tracker-nu.vercel.app',
   },
   {
     image: portfolio,
