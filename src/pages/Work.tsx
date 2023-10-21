@@ -6,7 +6,7 @@ import 'swiper/css/effect-coverflow';
 
 import moshify from '../assets/moshify.png';
 import de_banke from '../assets/de_banke.png';
-import portfolio from '../assets/portfolio.png';
+import portfolio from '../assets/c_portfolio.png';
 import Card from '../components/Card';
 import SliderButtons from '../components/SliderButtons';
 
@@ -20,7 +20,7 @@ const data = [
     c_url: 'https://github.com/K-Ds/Moshify',
   },
   {
-    image: c_portfolio,
+    image: portfolio,
     title: 'PORTFOLIO',
     description: 'This is the current website you are on',
     key: 104,
