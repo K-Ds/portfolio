@@ -6,11 +6,12 @@ type CardProps = {
   title: string;
   description: string;
   key: number;
-  url: string;
+  v_url: string;
+  c_url: string;
   active: boolean;
 };
 
-const Card = ({ image, title, description, key, url, active }: CardProps) => {
+const Card = ({ image, title, description, key, v_url,c_url, active }: CardProps) => {
   console.log(active, title);
   return (
     <div
@@ -25,8 +26,8 @@ const Card = ({ image, title, description, key, url, active }: CardProps) => {
         <h3 className="font-bold">{title}</h3>
         <p>{description}</p>
         <div className="flex space-x-6">
-          <Button text="Demo" url={url} />
-          <Button text="Code" url={url} />
+          <Button text="Demo" url={v_url} />
+          <Button text="Code" url={c_url} />
         </div>
       </div>
     </div>
