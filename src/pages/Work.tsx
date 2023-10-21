@@ -16,7 +16,16 @@ const data = [
     title: 'MOSHIFY',
     description: 'This is a cloud hosting website landing page',
     key: 101,
-    url: 'https://k-ds.github.io/Moshify',
+    v_url: 'https://k-ds.github.io/Moshify',
+    c_url: 'https://github.com/K-Ds/Moshify',
+  },
+  {
+    image: c_portfolio,
+    title: 'PORTFOLIO',
+    description: 'This is the current website you are on',
+    key: 104,
+    v_url: 'https://karenzidavid.vercel.app',
+    c_url: 'https://github.com/K-Ds/portfolio',
   },
   {
     image: de_banke,
@@ -24,14 +33,8 @@ const data = [
     description:
       'This is a finance manager web app, It is used to manage your finances',
     key: 102,
-    url: 'https://ex-tracker-nu.vercel.app',
-  },
-  {
-    image: portfolio,
-    title: 'MY BRAND',
-    description: 'This is my brand website, one of the first websites I built',
-    key: 103,
-    url: 'https://k-ds.github.io/My-Brand-David/UI/',
+    v_url: 'https://ex-tracker-nu.vercel.app',
+    c_url: 'https://github.com/K-Ds/Ex-Tracker',
   },
 ];
 
