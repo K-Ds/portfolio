@@ -20,7 +20,7 @@ const Contact = () => {
     },
   ]);
   return (
-    <div className="section">
+    <div id="contact" className="section">
       <div className="flex space-x-6 pb-6" id="Contact">
         <div className="flex flex-col flex-1 space-y-10 justify-center items-start rounded-xl">
           <h1 className="font-semibold text-3xl border-b-4 border-orange-500 pr-8 pb-6">
