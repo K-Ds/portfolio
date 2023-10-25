@@ -23,7 +23,7 @@ const Navbar = () => {
           );
         })}
       </ul>
-      <Button text="Contact Me" />
+      <Button text="Contact Me" url="#contact"/>
     </nav>
   );
 };
