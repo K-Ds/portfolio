@@ -1,7 +1,10 @@
 import clsx from 'clsx';
-import { useState } from 'react';
+import { collection, onSnapshot } from 'firebase/firestore';
+import { useEffect, useState } from 'react';
+import db from '../utils/firebase';
 
 interface experience {
+  key: string;
   company: string;
   position: string;
   startDate: string;
@@ -10,46 +13,21 @@ interface experience {
 }
 
 const Experience = () => {
-  const [experiences] = useState<experience[]>([
-    {
-      company: 'Positivo-Sparkpluss',
-      position: 'Cross-platform Mobile Developer',
-      startDate: 'November 2022',
-      endDate: 'Present',
-      achievements: [
-        'React Native development',
-        'Designed and implemented a responsive UI for React Native applications that adhere to industry best practices.',
-        'Successfully integrated complex third-party libraries and APIs into React Native applications',
-        'Collaborated with cross-functional teams, including UX designers, product managers.',
-      ],
-    },
-    {
-      company: 'Andela',
-      position: 'Apprentice',
-      startDate: 'November 2022',
-      endDate: 'Present',
-      achievements: [
-        'Enrolled in The Andela Technical Leadership Program ',
-        'This program gave me a solid foundation in web development and teamwork essentials.',
-        'The program was based on active development of team projects to practice our technical skills and collaboration when working with a team',
-        'And in the end had a 3months of apprenticeship working with experts in the industry',
-      ],
-    },
-    {
-      company: 'FreecodeCamp',
-      position: 'Self-Learning',
-      startDate: '',
-      endDate: '',
-      achievements: [
-        'This was my entry in software development',
-        'I successfully completed a comprehensive series of software development courses provided by FreeCodeCamp.',
-        '• Responsive Web Design(HTML & CSS)',
-        '• JavaScript Algorithms and Data Structures',
-        '• Front End Development Libraries',
-      ],
-    },
-  ]);
+  const [experiences, setExperiences] = useState<experience[]>([]);
   const [active, setActive] = useState(0);
+
+  useEffect(
+    () =>
+      onSnapshot(collection(db, 'experiences'), (snapshot) => {
+        const data: any = snapshot.docs.map((doc) => ({
+          ...doc.data(),
+          key: doc.id,
+        }));
+
+        setExperiences(data);
+      }),
+    []
+  );
 
   return (
     <div
@@ -68,7 +46,7 @@ const Experience = () => {
             <div
               key={id}
               className={clsx(
-                'px-2 py-4 text-xl font-bold border-l-4 transition-colors duration-300 ease-in',
+                'px-2 py-4 text-xl font-bold border-l-4 transition-colors duration-300 ease-in cursor-pointer',
                 id == active
                   ? 'border-orange-500 text-orange-500'
                   : 'border-gray-400 text-gray-400'

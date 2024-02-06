@@ -1,44 +1,40 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { EffectCoverflow } from 'swiper/modules';
+import db from '../utils/firebase';
+import { collection, onSnapshot } from 'firebase/firestore';
+import { useEffect, useState } from 'react';
 
 import 'swiper/css';
 import 'swiper/css/effect-coverflow';
 
-import moshify from '../assets/moshify.png';
-import de_banke from '../assets/de_banke.png';
-import portfolio from '../assets/c_portfolio.png';
 import Card from '../components/Card';
 import SliderButtons from '../components/SliderButtons';
 
-const data = [
-  {
-    image: moshify,
-    title: 'MOSHIFY',
-    description: 'This is a cloud hosting website landing page',
-    key: 101,
-    v_url: 'https://k-ds.github.io/Moshify',
-    c_url: 'https://github.com/K-Ds/Moshify',
-  },
-  {
-    image: portfolio,
-    title: 'PORTFOLIO',
-    description: 'This is the current website you are on',
-    key: 104,
-    v_url: 'https://karenzidavid.vercel.app',
-    c_url: 'https://github.com/K-Ds/portfolio',
-  },
-  {
-    image: de_banke,
-    title: 'Ex-Tracker',
-    description:
-      'This is a finance manager web app, It is used to manage your finances',
-    key: 102,
-    v_url: 'https://ex-tracker-nu.vercel.app',
-    c_url: 'https://github.com/K-Ds/Ex-Tracker',
-  },
-];
+type ProjectProps = {
+  image: string;
+  title: string;
+  description: string;
+  key: string;
+  v_url: string;
+  c_url: string;
+};
 
 const Work = () => {
+  const [projects, setProjects] = useState<ProjectProps[]>([]);
+
+  useEffect(
+    () =>
+      onSnapshot(collection(db, 'projects'), (snapshot) => {
+        const data: any = snapshot.docs.map((doc) => ({
+          ...doc.data(),
+          key: doc.id,
+        }));
+
+        setProjects(data);
+      }),
+    []
+  );
+
   return (
     <div
       id="Work"
@@ -64,8 +60,8 @@ const Work = () => {
           centeredSlides
           className="h-full flex flex-col justify-between space-y-16"
         >
-          {data.map((item, id) => (
-            <SwiperSlide key={id}>
+          {projects.map((item) => (
+            <SwiperSlide key={item.key}>
               {({ isActive }) => <Card {...item} active={isActive} />}
             </SwiperSlide>
           ))}
